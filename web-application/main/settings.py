@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web'
 ]
 
 MIDDLEWARE = [
@@ -77,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'voting_db',
-        'USER': 'votting',
-        'PASSWORD': '3B4q2C5d'
+        'USER': 'username',
+        'PASSWORD': 'password'
     }
 }
 
