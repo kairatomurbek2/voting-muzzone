@@ -3,13 +3,14 @@ from django.utils.translation import ugettext_lazy as _
 
 from main.image_utils import poll_choices_image_path
 
-# Create your models here.
-
 
 class Poll(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
     is_active = models.BooleanField(default=True, verbose_name=_('Активный'))
     created_at = models.DateField(auto_now=True, verbose_name=_('Дата создание'))
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = _('Опрос')
