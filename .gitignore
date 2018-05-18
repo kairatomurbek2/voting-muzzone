@@ -6,3 +6,4 @@ virtualenv
 *.sqlite3
 *~
 settings_local.py
+web-application/media/

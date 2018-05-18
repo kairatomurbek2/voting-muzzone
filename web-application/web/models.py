@@ -1,13 +1,13 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from main.image_utils import poll_choices_image_path
+from main.utils import poll_choices_image_path
 
 
 class Poll(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
     is_active = models.BooleanField(default=True, verbose_name=_('Активный'))
-    created_at = models.DateField(auto_now=True, verbose_name=_('Дата создание'))
+    created_at = models.DateField(auto_now_add=True, verbose_name=_('Дата создание'))
 
     def __str__(self):
         return self.title
@@ -23,6 +23,9 @@ class PollChoice(models.Model):
     description = models.TextField(null=True, blank=True, verbose_name=_('Описание'))
     image = models.ImageField(upload_to=poll_choices_image_path, verbose_name=u"Изображение")
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = _('Участник')
         verbose_name_plural = _('Участники')
@@ -30,9 +33,9 @@ class PollChoice(models.Model):
 
 class PollAnswer(models.Model):
     choices = models.ForeignKey(PollChoice, on_delete=models.CASCADE, verbose_name=_('Вариант'))
-    id_address = models.GenericIPAddressField(verbose_name=_('Ip адресс'))
+    ip_address = models.GenericIPAddressField(verbose_name=_('Ip адресс'))
     user_agent = models.CharField(max_length=200)
-    created_at = models.DateField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = _('Ответ')
