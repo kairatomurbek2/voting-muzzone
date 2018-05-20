@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+from django.db.models import F, Count
 
 from main.utils import poll_choices_image_path
 
@@ -8,6 +9,10 @@ class Poll(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
     is_active = models.BooleanField(default=True, verbose_name=_('Активный'))
     created_at = models.DateField(auto_now_add=True, verbose_name=_('Дата создание'))
+
+    def get_result(self):
+        answers_count = PollAnswer.objects.filter(choices__poll=self.id).count()
+        return self.choices.annotate(percent=(Count('answers') * 100) / answers_count)
 
     def __str__(self):
         return self.title
@@ -32,7 +37,7 @@ class PollChoice(models.Model):
 
 
 class PollAnswer(models.Model):
-    choices = models.ForeignKey(PollChoice, on_delete=models.CASCADE, verbose_name=_('Вариант'))
+    choices = models.ForeignKey(PollChoice, on_delete=models.CASCADE, verbose_name=_('Вариант'), related_name='answers')
     ip_address = models.GenericIPAddressField(verbose_name=_('Ip адресс'))
     user_agent = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)

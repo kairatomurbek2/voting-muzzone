@@ -5,6 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-
+    {% for choice in choices %}
+        <br>{{ choice.title }} - {{ choice.percent }}%
+    {% endfor %}
 </body>
 </html>
