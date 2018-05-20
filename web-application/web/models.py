@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import F, Count
 
-from main.utils import poll_choices_image_path
+from main.utils import poll_choices_image_path, ad_image_path
 
 
 class Poll(models.Model):
@@ -45,3 +45,13 @@ class PollAnswer(models.Model):
     class Meta:
         verbose_name = _('Ответ')
         verbose_name_plural = _('Ответы')
+
+
+class Ad(models.Model):
+    title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
+    image = models.ImageField(upload_to=ad_image_path, verbose_name=u"Изображение")
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = _('Спонсор')
+        verbose_name_plural = _('Спонсоры')

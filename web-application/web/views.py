@@ -20,5 +20,5 @@ def vote(request, **kwargs):
 
 
 def feed(request):
-    poll = Poll.objects.filter(is_active=True).first()
+    poll = Poll.objects.filter(is_active=True).last()
     return render(request, 'base.html', {'choices': poll.get_result()})
