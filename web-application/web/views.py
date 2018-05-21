@@ -22,3 +22,9 @@ def vote(request, **kwargs):
 def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
     return render(request, 'base.html', {'choices': poll.get_result()})
+
+@csrf_exempt
+@require_http_methods(["POST"])
+@check_vote_permisson
+def check(request, **kwargs):
+    return JsonResponse({'success': True, 'message': 'Вы можете проголосовать'})
