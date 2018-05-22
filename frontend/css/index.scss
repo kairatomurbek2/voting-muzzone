@@ -1,0 +1,55 @@
+// fonts
+$ubold: 'ubuntubold', sans-serif;
+$uregular: 'ubunturegular', sans-serif;
+$ulight: 'ubuntulight', sans-serif;
+
+//colors
+$preheader: rgb(24, 20, 43);
+$header: rgb(36, 34, 28);
+$yellow: rgb(214, 180, 43);
+$grey: #adadad;
+$titleBody: rgb(128, 128, 128);
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 10px;
+  font-family: $uregular;
+  background: #fff;
+}
+
+@import "blocks/elements";
+@import "blocks/header";
+@import "blocks/footer";
+
+
+.video {
+  background: url('../img/video-bg.jpg') center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 20px 0;
+  &__item {
+    padding: 15px 5px;
+  }
+  &__title {
+    font-size: 2.2rem;;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+  }
+  &__name {
+    color: #fff;
+    text-transform: uppercase;
+  }
+  &__song {
+    color: $yellow;
+  }
+  &__vote {
+    text-align: center;
+  }
+  &__iframe {
+    width: 100%;
+  }
+}

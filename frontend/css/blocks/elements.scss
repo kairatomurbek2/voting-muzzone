@@ -1,0 +1,226 @@
+.logo {
+  color: $yellow;
+  display: inline-block;
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  &__icon {
+    font-size: 3.2rem;
+  }
+  &__text {
+    margin-left: 10px;
+    font-size: 2.6rem;
+    font-family: $ubold;
+  }
+}
+
+.title {
+  padding: 30px 0;
+  text-align: center;
+  &__heading {
+    font-size: 4.8rem;
+    text-transform: uppercase;
+    color: $header;
+  }
+  &__body {
+    padding-top: 10px;
+    font-size: 1.3rem;
+    color: $titleBody;
+  }
+}
+
+.small-title {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: $ubold;
+}
+
+.text {
+  font-size: 1.3rem;
+  &-white {
+    color: #fff;
+  }
+}
+
+.info-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  &__item {
+    padding: 2px 20px 2px 0;
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+  &__icon {
+    color: $yellow;
+  }
+  &__text {
+    padding-left: 5px;
+    color: $grey;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &-column {
+    flex-direction: column;
+    align-items: flex-start;
+    &__item {
+      padding: 3px 0;
+    }
+  }
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2px 0;
+  &__item {
+    text-decoration: none;
+    color: inherit;
+    padding: 0 5px;
+  }
+  &__icon {
+    color: $grey;
+    font-size: 1.6rem;
+    &:hover {
+      color: $yellow;
+    }
+  }
+  &-big {
+    justify-content: flex-start;
+    &__item {
+      &:hover {
+        transform: rotate(360deg);
+        transition: .4s ease-out;
+      }
+    }
+    &__icon {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+.navigation {
+  &__collapse {
+    justify-content: flex-end
+  }
+  &__link {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: #fff;
+    &:hover {
+      color: $yellow;
+      transition: .2s ease;
+    }
+  }
+  &__dropdown {
+    padding: 0;
+    width: 100%;
+  }
+  &__dropdown-item {
+    font-size: 1.4rem;
+    padding: .55rem 1.5rem;
+    &:hover {
+      background: $yellow;
+      color: #fff;
+    }
+    &-active {
+      background: $yellow;
+      color: #fff;
+    }
+  }
+  &__toggler {
+    color: #ffffff;
+    font-size: 2.2rem;
+  }
+}
+
+.form {
+  padding: 20px 0;
+  &__form {}
+  &__text {
+    display: block;
+    width: 100%;
+    padding: 2px 4px;
+    outline: none;
+    &-wrap {}
+  }
+  &__textarea {
+    display: block;
+    width: 100%;
+    resize: none;
+    outline: none;
+    padding: 2px 4px;
+    &-wrap {}
+  }
+  &__submit {
+    display: inline-block;
+    padding: 12px 21px;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-family: $ubold;
+    border: 0;
+    color: #fff;
+    background: $yellow;
+    transition: .2s ease-in;
+    &:hover {
+      transition: .2s ease-in;
+      color: #000;
+      background: #fff;
+    }
+  }
+}
+
+.button-big {
+  display: inline-block;
+  border: 0;
+  background: $yellow;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 10px 20px;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+@media (max-width: 992px) {
+  .navigation {
+    &__link {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    justify-content: flex-end;
+    &__dropdown {
+      background: none;
+    }
+    &__dropdown-item {
+      text-align: end;
+      color: #fff;
+      &-active {
+        background: none;
+        color: $yellow;
+      }
+    }
+    &__item {
+      text-align: end;
+    }
+  }
+}
