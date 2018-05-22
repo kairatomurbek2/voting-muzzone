@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'voting_db',
-        'USER': 'username',
-        'PASSWORD': 'password'
+        'NAME': os.environ.get('DB_NAME', 'db_name'),
+        'USER': os.environ.get('DB_USERNAME', 'db_name'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'db_name')
     }
 }
 
