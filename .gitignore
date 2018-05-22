@@ -8,3 +8,4 @@ virtualenv
 settings_local.py
 web-application/static
 web-application/media
+*/node_modules/
