@@ -191,9 +191,21 @@
   text-transform: uppercase;
   color: #fff;
   padding: 10px 20px;
+  transition: .2s ease-in;
   &:hover {
     text-decoration: none;
-    color: #fff;
+    color: #000;
+    background: #fff;
+    transition: .2s ease-in;
+  }
+}
+
+.fullimage {
+  width: 100%;
+  padding: 10px 0;
+  &__img {
+    width: 100%;
+    height: auto;
   }
 }
 
@@ -222,5 +234,42 @@
     &__item {
       text-align: end;
     }
+  }
+}
+
+.alert {
+  display: none;
+  font-size: 1.4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%;
+}
+
+.clock-wrap {
+  position: fixed;
+  bottom: 0;
+  right: -120px;
+  z-index: 1000;
+  height: 100px;
+  display: none;
+  #clock {
+    transform: scale(0.4);
+    width: auto;
+  }
+  .clock-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.8);
+  }
+}
+
+
+@media (max-width: 576px) {
+  .clock-wrap {
+    display: none !important;
   }
 }

@@ -1,12 +1,192 @@
-<!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>K-POP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static 'node_modules/reset-css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'node_modules/flipclock/dist/flipclock.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/ubuntu/ubuntu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    {% for choice in choices %}
-        <br>{{ choice.title }} - {{ choice.percent }}%
-    {% endfor %}
+
+<div class="clock-wrap">
+    <div class="clock-title">Вы сможете проголосовать через:</div>
+    <div id="clock"></div>
+</div>
+
+<div class="preheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-10">
+                <div class="info-menu">
+                    <div class="info-menu__item">
+                        <span class="info-menu__icon fa fa-phone"></span>
+                        <span class="info-menu__text">
+                                <a href="tel:+7(727)3151616">+7 (727) 315 16 16</a>
+                            </span>
+                    </div>
+                    <div class="info-menu__item">
+                        <span class="info-menu__icon fa fa-map-marker"></span>
+                        <span class="info-menu__text">г. Алматы, 3 микрорайон, 40 Б</span>
+                    </div>
+                    <div class="info-menu__item">
+                        <span class="info-menu__icon fa fa-envelope"></span>
+                        <span class="info-menu__text">webmaster@muzzone.tv</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="social-list">
+                    <a class="social-list__item">
+                        <i class="social-list__icon fa fa-facebook"></i>
+                    </a>
+                    <a class="social-list__item">
+                        <i class="social-list__icon fa fa-vk"></i>
+                    </a>
+                    <a class="social-list__item">
+                        <i class="social-list__icon fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="logo">
+                    <a href="#" class="logo__link">
+                        <span class="logo__icon fa fa-music"></span>
+                        <span class="logo__text">MUZZONE</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-9">
+                <nav class="navbar navbar-expand-md navigation">
+                    <button class="navbar-toggler navigation__toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <div class="collapse navbar-collapse navigation__collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav navigation__nav">
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">Главная</a>
+                            </li>
+                            <li class="nav-item navigation__item dropdown">
+                                <a class="nav-link navigation__link navigation__link-dropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    Голосование
+                                </a>
+                                <div class="dropdown-menu navigation__dropdown" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item navigation__dropdown-item navigation__dropdown-item-active" href="#">K-POP</a>
+                                    <a class="dropdown-item navigation__dropdown-item" href="#">Q-POP</a>
+                                </div>
+                            </li>
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">Ема</a>
+                            </li>
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">Новости</a>
+                            </li>
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">О нас</a>
+                            </li>
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">Контакты</a>
+                            </li>
+                            <li class="nav-item navigation__item">
+                                <a class="nav-link navigation__link" href="#">Медиа Центр</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-12 pt-5">
+                <div class="small-title">Мы в социальных сетях:</div>
+                <div class="text text-white pt-5">Наши социальные сети обновляются ежедневно. Подписывайтесь и будьте активными!</div>
+                <div class="pt-5">
+                    <div class="social-list social-list-big">
+                        <a class="social-list__item social-list-big__item">
+                            <i class="social-list__icon social-list-big__icon fa fa-facebook"></i>
+                        </a>
+                        <a class="social-list__item social-list-big__item">
+                            <i class="social-list__icon social-list-big__icon fa fa-vk"></i>
+                        </a>
+                        <a class="social-list__item social-list-big__item">
+                            <i class="social-list__icon social-list-big__icon fa fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 pt-5">
+                <div class="small-title">Наш офис</div>
+                <div class="pt-5">
+                    <div class="info-menu info-menu-column">
+                        <div class="info-menu__item info-menu-column__item">
+                            <span class="info-menu__icon fa fa-phone"></span>
+                            <span class="info-menu__text">
+                                    <a href="tel:+7(727)3151616">+7 (727) 315 16 16</a>
+                                </span>
+                        </div>
+                        <div class="info-menu__item info-menu-column__item">
+                            <span class="info-menu__icon fa fa-map-marker"></span>
+                            <span class="info-menu__text">г. Алматы, 3 микрорайон, 40 Б</span>
+                        </div>
+                        <div class="info-menu__item info-menu-column__item">
+                            <span class="info-menu__icon fa fa-envelope"></span>
+                            <span class="info-menu__text">webmaster@muzzone.tv</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 pt-5">
+                <div class="small-title">Напишите нам</div>
+                <div class="form">
+                    <form action="" class="form__form">
+                        <div class="form__text-wrap pb-4">
+                            <input type="text" class="form__text" placeholder="E-mail">
+                        </div>
+                        <div class="form__textarea-wrap pb-4">
+                            <textarea name="" id="" cols="30" rows="3" class="form__textarea" placeholder="Сообщение"></textarea>
+                        </div>
+                        <div class="form__submit-wrap">
+                            <input type="submit" value="Отправить" class="form__submit">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="alert alert-success" id="alert-success" role="alert">
+    Вы успешно проголосовали
+</div>
+
+<div class="alert alert-danger" id="alert-danger" role="alert">
+    Что-то пошло не так! Попробуйте позднее
+</div>
+
+<script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+<script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'node_modules/flipclock/dist/flipclock.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

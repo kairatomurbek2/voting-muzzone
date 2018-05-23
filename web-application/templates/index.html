@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="container">
+    <div class="title">
+        <div class="title__heading">K-POP CHART</div>
+        <div class="title__body">Они вскружили голову поклонникам современной музыки во всем мире! K-pop направление - сегодня это целая субкультура,
+            тренд и отражение мировоззрения молодежи. Чем живут и дышат кумиры миллионов? И смогут ли твои фавориты занять
+            вершину списка нашего K-pop chartа? Отдай свой голос за самого талантливого!
+        </div>
+        <div class="fullimage">
+            <img class="fullimage__img" src="{% static 'img/technodom.png' %}">
+        </div>
+    </div>
+</div>
+<div class="video">
+    <div class="container-fluid">
+        <div class="row">
+            {% for choice in choices %}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="video__item">
+                        <div class="video__frame">
+                            <img src="{{choice.image.url}}" class="video__iframe" alt="">
+                        </div>
+                        <div class="video__title">
+                            <span class="video__name">{{choice.title}} - </span>
+                            <span class="video__song">{{choice.description}}</span>
+                        </div>
+                        <div class="video__vote">
+                            <a href="#" onclick="vote(event, '{{choice.poll.pk}}', '{{choice.pk}}')" class="button-big">Голосовать</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -23,7 +23,7 @@ def vote(request, **kwargs):
 def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
     if poll:
-        return render(request, 'base.html', {'choices': poll.get_result()})
+        return render(request, 'index.html', {'choices': poll.get_result()})
     else:
         return render(request, 'test.html')
 

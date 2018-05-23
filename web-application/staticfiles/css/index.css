@@ -156,10 +156,20 @@ html, body {
   font-size: 1.6rem;
   text-transform: uppercase;
   color: #fff;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  transition: .2s ease-in; }
   .button-big:hover {
     text-decoration: none;
-    color: #fff; }
+    color: #000;
+    background: #fff;
+    transition: .2s ease-in; }
+
+.fullimage {
+  width: 100%;
+  padding: 10px 0; }
+  .fullimage__img {
+    width: 100%;
+    height: auto; }
 
 @media (max-width: 992px) {
   .navigation__link {
@@ -178,6 +188,37 @@ html, body {
         color: #d6b42b; }
     .navigation__item {
       text-align: end; } }
+
+.alert {
+  display: none;
+  font-size: 1.4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 100%; }
+
+.clock-wrap {
+  position: fixed;
+  bottom: 0;
+  right: -120px;
+  z-index: 1000;
+  height: 100px;
+  display: none; }
+  .clock-wrap #clock {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+    width: auto; }
+  .clock-wrap .clock-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #fff;
+    text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.8); }
+
+@media (max-width: 576px) {
+  .clock-wrap {
+    display: none !important; } }
 
 .preheader {
   background: #18142b;
