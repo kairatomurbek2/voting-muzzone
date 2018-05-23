@@ -5,13 +5,11 @@
 
 <div class="container">
     <div class="title">
-        <div class="title__heading">K-POP CHART</div>
-        <div class="title__body">Они вскружили голову поклонникам современной музыки во всем мире! K-pop направление - сегодня это целая субкультура,
-            тренд и отражение мировоззрения молодежи. Чем живут и дышат кумиры миллионов? И смогут ли твои фавориты занять
-            вершину списка нашего K-pop chartа? Отдай свой голос за самого талантливого!
+        <div class="title__heading">{{ ad.title }}</div>
+        <div class="title__body">
         </div>
         <div class="fullimage">
-            <img class="fullimage__img" src="{% static 'img/technodom.png' %}">
+            <img class="fullimage__img" src="{{ ad.image.url }}">
         </div>
     </div>
 </div>

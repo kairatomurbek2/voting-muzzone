@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.db.models import Count
 
 from web.decorators import get_poll, get_choice, check_vote_permisson
-from web.models import PollAnswer, Poll
+from web.models import PollAnswer, Poll, Ad
 
 
 @csrf_exempt
@@ -22,7 +22,10 @@ def vote(request, **kwargs):
 
 def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
+    ad = Ad.objects.last()
     data = {}
+    if ad:
+        data['ad'] = ad
     if poll:
         data['choices'] = poll.get_result()
     return render(request, 'index.html', data)
