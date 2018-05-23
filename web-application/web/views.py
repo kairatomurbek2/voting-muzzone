@@ -22,10 +22,10 @@ def vote(request, **kwargs):
 
 def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
+    data = {}
     if poll:
-        return render(request, 'index.html', {'choices': poll.get_result()})
-    else:
-        return render(request, 'test.html')
+        data['choices'] = poll.get_result()
+    return render(request, 'index.html', data)
 
 @csrf_exempt
 @require_http_methods(["POST"])
