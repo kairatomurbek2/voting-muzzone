@@ -10,7 +10,7 @@ def poll_choices_image_path(instance, filename):
 def ad_image_path(instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (uuid.uuid4(), ext)
-    return 'ad/{0}'.format(filename)
+    return 'sponsor/{0}'.format(filename)
 
 
 def get_client_ip(request):

@@ -4,3 +4,4 @@ mysqlclient==1.3.12
 Pillow==5.1.0
 pytz==2018.4
 sqlparse==0.2.4
+sorl-thumbnail==12.4.1

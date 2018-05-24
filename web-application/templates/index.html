@@ -1,39 +1,48 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
+{% load staticfiles thumbnail %}
 
 {% block content %}
 
-<div class="container">
-    <div class="title">
-        <div class="title__heading">{{ ad.title }}</div>
-        <div class="title__body">
-        </div>
-        <div class="fullimage">
-            <img class="fullimage__img" src="{{ ad.image.url }}">
+    <div class="container">
+        <div class="title">
+            <div class="title__heading">{{ ad.title }}</div>
+            <div class="title__body">
+            </div>
+            <div class="fullimage">
+                {% if ad.image %}
+                    {% thumbnail ad.image "1100x500" as im %}
+                        <img class="fullimage__img" src="{{ im.url }}" alt={{ ad.title }}>
+                    {% endthumbnail %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
-<div class="video">
-    <div class="container-fluid">
-        <div class="row">
-            {% for choice in choices %}
-                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                    <div class="video__item">
-                        <div class="video__frame">
-                            <img src="{{choice.image.url}}" class="video__iframe" alt="">
-                        </div>
-                        <div class="video__title">
-                            <span class="video__name">{{choice.title}} - </span>
-                            <span class="video__song">{{choice.percent}}%</span>
-                        </div>
-                        <div class="video__vote">
-                            <a href="#" onclick="vote(event, '{{choice.poll.pk}}', '{{choice.pk}}')" class="button-big">Голосовать</a>
+    <div class="video">
+        <div class="container-fluid">
+            <div class="row">
+                {% for choice in choices %}
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="video__item">
+                            <div class="video__frame">
+                                {% if choice.image %}
+                                    {% thumbnail choice.image "450x280" as im %}
+                                        <img class="video__iframe" src="{{ im.url }}" alt={{ choice.title }}>
+                                    {% endthumbnail %}
+                                {% endif %}
+                            </div>
+                            <div class="video__title">
+                                <span class="video__name">{{ choice.title }} - </span>
+                                <span class="video__song">{{ choice.percent }}%</span>
+                            </div>
+                            <div class="video__vote">
+                                <a href="#" onclick="vote(event, '{{ choice.poll.pk }}', '{{ choice.pk }}')"
+                                   class="button-big">Голосовать</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
 
 {% endblock %}
