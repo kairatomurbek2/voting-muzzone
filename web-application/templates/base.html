@@ -189,6 +189,7 @@
 <script src="{% static 'node_modules/flipclock/dist/flipclock.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
 <script>
+    {% if choices.has_next %}
     var page = {{ choices.next_page_number }}
     var end_index = {{ choices.end_index}}
     function pagination(){
@@ -207,6 +208,7 @@
         }
         $('#object_list').append(data)
     }
+    {% endif %}
 </script>
 </body>
 </html>
