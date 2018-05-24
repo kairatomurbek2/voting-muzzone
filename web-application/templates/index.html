@@ -32,7 +32,7 @@
                             </div>
                             <div class="video__title">
                                 <span class="video__name">{{ choice.title }} - </span>
-                                <span id="percent" class="video__song">{{ choice.percent |default_if_none:"0" }}%</span>
+                                <span id="percent-{{ choices.id }}" class="video__song">{{ choice.percent |default_if_none:"0" }}%</span>
                             </div>
                             <div class="video__vote">
                                 <a href="#" onclick="vote(event, '{{ choice.poll.pk }}', '{{ choice.pk }}')"
