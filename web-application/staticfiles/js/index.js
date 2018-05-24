@@ -21,7 +21,8 @@ function vote(event, questionId, choiceId) {
       choice: choiceId
     },
     success: function (data) {
-      if (data.success) {
+      if(data.success) {
+        $('#percent').text(data.percent + '%')
         handleErrors(true);
       } else {
         handleErrors(false, data.message);

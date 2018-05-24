@@ -17,8 +17,8 @@ from web.models import PollAnswer, Poll, Ad
 def vote(request, **kwargs):
     PollAnswer.objects.create(choices=kwargs.get('choice'), ip_address=kwargs.get('ip_address'),
                               user_agent=kwargs.get('user_agent'))
-
-    return JsonResponse({'success': True, 'message': 'Спасибо за ваш голос!'})
+    percent = kwargs.get('poll').get_result().filter(id=kwargs.get('choice').id)[0].percent
+    return JsonResponse({'success': True, 'message': 'Спасибо за ваш голос!', 'percent': percent})
 
 
 def feed(request):
