@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.db.models import Count
+from django.core.paginator import Paginator
 
 from web.decorators import get_poll, get_choice, check_vote_permisson
 from web.models import PollAnswer, Poll, Ad
@@ -24,10 +25,14 @@ def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
     ad = Ad.objects.last()
     data = {}
+    page = request.GET.get('page', 1)
     if ad:
         data['ad'] = ad
     if poll:
-        data['choices'] = poll.get_result()
+        choices = Paginator(poll.get_result(), 10)
+        data['choices'] = choices.get_page(page)
+    if request.is_ajax():
+        return render(request, 'paginate.html', data)
     return render(request, 'index.html', data)
 
 @csrf_exempt

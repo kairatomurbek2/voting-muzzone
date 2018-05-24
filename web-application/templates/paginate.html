@@ -1,26 +1,5 @@
-{% extends 'base.html' %}
 {% load staticfiles thumbnail %}
-
-{% block content %}
-
-    <div class="container">
-        <div class="title">
-            <div class="title__heading">{{ ad.title }}</div>
-            <div class="title__body">
-            </div>
-            <div class="fullimage">
-                {% if ad.image %}
-                    {% thumbnail ad.image "1100x500" as im %}
-                        <img class="fullimage__img" src="{{ im.url }}" alt={{ ad.title }}>
-                    {% endthumbnail %}
-                {% endif %}
-            </div>
-        </div>
-    </div>
-    <div class="video">
-        <div class="container-fluid">
-            <div class="row" id="object_list">
-                {% for choice in choices %}
+   {% for choice in choices %}
                     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="video__item">
                             <div class="video__frame">
@@ -40,13 +19,4 @@
                             </div>
                         </div>
                     </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
-    {% if choices.has_next %}
-         <a id="pagination_button" href="" onclick="pagination();return false;" class="button-big">Загрузить еще</a>
-    {% endif %}
-
-{% endblock %}
+    {% endfor %}
