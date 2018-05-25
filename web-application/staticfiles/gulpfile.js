@@ -28,3 +28,7 @@ gulp.task('watch:css', () => {
 gulp.task('watch', () => {
   gulp.start('watch:css');
 })
+
+gulp.task('build', () => {
+  gulp.start('css');
+});

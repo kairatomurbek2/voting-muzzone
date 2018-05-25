@@ -6,7 +6,7 @@ function checkVotePermissions() {
         handleErrors(false, data.message);
         var time = data.message.match(/\d{1,2}/g);
         if (time && time.length >= 3) {
-          $('.clock-wrap').fadeIn('fast');
+          $('.clock-wrap').css('display', 'inline-block');
           initClock(+time[0], +time[1], +time[2]);
         }
       }

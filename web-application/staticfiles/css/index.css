@@ -199,24 +199,28 @@ html, body {
   width: 100%; }
 
 .clock-wrap {
-  position: fixed;
-  bottom: 0;
-  right: -120px;
-  z-index: 1000;
-  height: 100px;
+  height: 30px;
+  width: auto;
   display: none; }
   .clock-wrap #clock {
     -webkit-transform: scale(0.4);
             transform: scale(0.4);
-    width: auto; }
+    width: auto;
+    position: relative;
+    top: -38px;
+    right: -170px; }
   .clock-wrap .clock-title {
-    width: 100%;
-    text-align: center;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    top: 7px;
+    text-align: left;
     font-size: 1.4rem;
     color: #fff;
-    text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.8); }
+    text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.8);
+    padding-right: 190px; }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .clock-wrap {
     display: none !important; } }
 
@@ -228,12 +232,19 @@ html, body {
 
 .header {
   background: #24221c;
-  padding: 12px 0; }
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; }
 
 .footer {
   font-size: 1.4rem;
   padding: 20px 0;
   background: #24221c; }
+
+.whole-content {
+  padding-top: 60px; }
 
 .video {
   background: url("../img/video-bg.jpg") center no-repeat;

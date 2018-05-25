@@ -4,7 +4,8 @@
   "description": "muzzone frontend",
   "main": "index.js",
   "scripts": {
-    "watch": "npx gulp watch"
+    "watch": "npx gulp watch",
+    "build": "npx gulp build"
   },
   "author": "",
   "license": "ISC",

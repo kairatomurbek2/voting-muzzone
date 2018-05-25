@@ -25,6 +25,10 @@ html, body {
 @import "blocks/footer";
 
 
+.whole-content {
+  padding-top: 60px;
+}
+
 .video {
   background: url('../img/video-bg.jpg') center no-repeat;
   background-attachment: fixed;

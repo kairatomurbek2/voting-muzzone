@@ -14,12 +14,7 @@
 </head>
 <body>
 
-<div class="clock-wrap">
-    <div class="clock-title">Вы сможете проголосовать через:</div>
-    <div id="clock"></div>
-</div>
-
-<div class="preheader">
+{% comment %} <div class="preheader">
     <div class="container">
         <div class="row">
             <div class="col-10">
@@ -55,7 +50,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 <div class="header">
     <div class="container">
         <div class="row">
@@ -67,8 +62,8 @@
                     </a>
                 </div>
             </div>
-            <div class="col-9">
-                <nav class="navbar navbar-expand-md navigation">
+            <div class="col-9" style="text-align: right;">
+                {% comment %} <nav class="navbar navbar-expand-md navigation">
                     <button class="navbar-toggler navigation__toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
                         <i class="fa fa-navicon"></i>
@@ -79,8 +74,7 @@
                                 <a class="nav-link navigation__link" href="#">Главная</a>
                             </li>
                             <li class="nav-item navigation__item dropdown">
-                                <a class="nav-link navigation__link navigation__link-dropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link navigation__link navigation__link-dropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Голосование
                                 </a>
                                 <div class="dropdown-menu navigation__dropdown" aria-labelledby="navbarDropdownMenuLink">
@@ -105,16 +99,22 @@
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </nav> {% endcomment %}
+                <div class="clock-wrap">
+                    <div class="clock-title">Вы сможете проголосовать через:</div>
+                    <div id="clock"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<div class="whole-content">
 {% block content %}
 {% endblock %}
+</div>
 
-<div class="footer">
+{% comment %} <div class="footer">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12 pt-5">
@@ -173,7 +173,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 
 
 <div class="alert alert-success" id="alert-success" role="alert">
