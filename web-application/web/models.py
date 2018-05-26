@@ -12,7 +12,7 @@ class Poll(models.Model):
 
     def get_result(self):
         answers_count = PollAnswer.objects.filter(choices__poll=self.id).count()
-        return self.choices.annotate(percent=(Count('answers') * 100) / answers_count).order_by('-percent')
+        return self.choices.annotate(percent=((answers_count * 100) / Count('answers'))).order_by('-percent')
 
     def __str__(self):
         return self.title
