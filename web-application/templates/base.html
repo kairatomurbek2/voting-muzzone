@@ -202,10 +202,10 @@
     }
 
     function afterPaginate(data) {
+        $('#object_list').append(data)
         if( page >= end_index){
             return $('#pagination_button').remove()
         }
-        $('#object_list').append(data)
         page += 1;
     }
     {% endif %}
