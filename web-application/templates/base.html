@@ -191,7 +191,7 @@
 <script>
     {% if choices.has_next %}
     var page = {{ choices.next_page_number }}
-    var end_index = {{ choices.end_index}}
+    var end_index = {{ count}}
     function pagination(){
         $.ajax({
             url: '/',
@@ -202,11 +202,11 @@
     }
 
     function afterPaginate(data) {
-        page += page;
         if( page > end_index){
             return $('#pagination_button').remove()
         }
         $('#object_list').append(data)
+        page += page;
     }
     {% endif %}
 </script>
