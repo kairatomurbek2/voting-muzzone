@@ -196,7 +196,8 @@ html, body {
   top: 0;
   left: 0;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  z-index: 1001; }
 
 .clock-wrap {
   height: 30px;
