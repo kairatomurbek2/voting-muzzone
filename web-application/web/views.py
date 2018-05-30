@@ -2,7 +2,6 @@ from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.db.models import Count
 from django.core.paginator import Paginator
 
 from web.decorators import get_poll, get_choice, check_vote_permisson
@@ -30,6 +29,7 @@ def feed(request):
         data['ad'] = ad
     if poll:
         choices = Paginator(poll.get_result(), 10)
+        data['poll'] = poll
         data['choices'] = choices.get_page(page)
         data['count'] = choices.count
     if request.is_ajax():
