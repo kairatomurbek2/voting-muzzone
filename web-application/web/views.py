@@ -34,7 +34,7 @@ def feed(request):
     if ad:
         data['ad'] = ad
     if poll:
-        choices = Paginator(poll.get_result(), 10)
+        choices = Paginator(poll.get_result(), 12)
         data['poll'] = poll
         data['choices'] = choices.get_page(page)
         data['count'] = choices.num_pages
