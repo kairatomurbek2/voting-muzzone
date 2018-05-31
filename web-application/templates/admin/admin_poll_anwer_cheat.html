@@ -1,0 +1,37 @@
+{% extends 'admin/base.html' %}
+{% load i18n %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+{% endblock %}
+
+{% block content %}
+    <form enctype="multipart/form-data" action="{% url "admin:admin_poll_answer_cheat" %}" method="post" id="ad_form"
+          novalidate="">
+        {% csrf_token %}
+        <div>
+            <fieldset class="module aligned ">
+                <div class="form-row field-title">
+                    <div>
+                        <label class="required" for="id_title">Выберите участника:</label>
+                        {{ form.poll_choice }}
+                    </div>
+                </div>
+                <br>
+                <div class="form-row field-title">
+                    <div>
+                        <label class="required" for="id_title">Введите количество:</label>
+                        {{ form.count }}
+                    </div>
+                </div>
+            </fieldset>
+            <div class="submit-row">
+                <input type="submit" value="Создать" class="default" name="_save" style="float: left;">
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
