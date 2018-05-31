@@ -10,8 +10,8 @@
                                 {% endif %}
                             </div>
                             <div class="video__title">
-                                <span class="video__name">{{ choice.title }} - </span>
-                                <span id="percent-{{ choice.id }}" class="video__song">{{ choice.percent }}%</span>
+                                <span class="video__name">{{ choice.title }} {{ choice.id }} - </span>
+                                <span id="percent-{{ choice.id }}" class="video__song">{{ choice.percent | default_if_none:"0"}}%</span>
                             </div>
                             <div class="video__vote">
                                 <a href="#" onclick="vote(event, '{{ choice.poll.pk }}', '{{ choice.pk }}')"

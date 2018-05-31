@@ -37,7 +37,7 @@ def feed(request):
         choices = Paginator(poll.get_result(), 10)
         data['poll'] = poll
         data['choices'] = choices.get_page(page)
-        data['count'] = choices.count
+        data['count'] = choices.num_pages
     if request.is_ajax():
         return render(request, 'paginate.html', data)
     return render(request, 'index.html', data)
