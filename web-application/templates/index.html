@@ -7,6 +7,9 @@
 
     <div class="container">
         <div class="title">
+            <h1 class="title-h1">ЕМА 2018</h1>
+        </div>
+        <div class="title" style="padding-bottom: 0;">
             <div class="title__heading">{{ ad.title }}</div>
             <div class="title__body">
             </div>
@@ -19,15 +22,36 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="ads">
+            <div class="row" style="justify-content: center;">
+                {% for ad in ads %}
+                    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                        <div class="ad">
+                            <h3 class="ad__title">{{ad.title}}</h3>
+                            <div class="ad__image">
+                                {% if ad.image %}
+                                    {% thumbnail ad.image "450x280" as im %}
+                                        <img src="{{ im.url }}" alt="{{ ad.title }}">
+                                    {% endthumbnail %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <div class="video">
         <div class="container-fluid">
             <div class="row" id="object_list">
+                <h4 class="poll">{{ poll.title }} </h4>
                 {% include 'paginate.html' %}
             </div>
         </div>
     </div>
     {% if choices.has_next %}
-         <a id="pagination_button" href="" onclick="pagination();return false;" class="button-big">Загрузить еще</a>
+        <a id="pagination_button" href="" onclick="pagination();return false;" class="button-big">Загрузить еще</a>
     {% endif %}
 
 {% endblock %}

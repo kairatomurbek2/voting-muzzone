@@ -29,10 +29,13 @@ def vote(request, **kwargs):
 def feed(request):
     poll = Poll.objects.filter(is_active=True).last()
     ad = Ad.objects.last()
+    ads = Ad.objects.all();
     data = {}
     page = request.GET.get('page', 1)
     if ad:
         data['ad'] = ad
+    if ads: 
+        data['ads'] = ads
     if poll:
         choices = Paginator(poll.get_result(), 12)
         data['poll'] = poll

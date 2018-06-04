@@ -1,22 +1,21 @@
 {% load staticfiles thumbnail %}
    {% for choice in choices %}
-                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="video__item">
-                            <div class="video__frame">
-                                {% if choice.image %}
-                                    {% thumbnail choice.image "450x280" as im %}
-                                        <img class="video__iframe" src="{{ im.url }}" alt={{ choice.title }}>
-                                    {% endthumbnail %}
-                                {% endif %}
-                            </div>
-                            <div class="video__title">
-                                <span class="video__name">{{ choice.title }} - </span>
-                                <span id="percent-{{ choice.id }}" class="video__song">{{ choice.percent | default_if_none:"0"}}%</span>
-                            </div>
-                            <div class="video__vote">
-                                <a href="#" onclick="vote(event, '{{ choice.poll.pk }}', '{{ choice.pk }}')"
-                                   class="button-big">Голосовать</a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="video__item">
+                <div class="video__frame">
+                    {% if choice.image %}
+                        {% thumbnail choice.image "450x280" as im %}
+                            <img class="video__iframe" src="{{ im.url }}" alt={{ choice.title }}>
+                        {% endthumbnail %}
+                    {% endif %}
+                </div>
+                <div class="video__title">
+                    <span class="video__name">{{ choice.title }} - </span>
+                    <span id="percent-{{ choice.id }}" class="video__song">{{ choice.percent | default_if_none:"0"}}%</span>
+                </div>
+                <div class="video__vote">
+                    <a href="#" onclick="vote(event, '{{ choice.poll.pk }}', '{{ choice.pk }}')" class="button-big">Голосовать</a>
+                </div>
+            </div>
+        </div>
     {% endfor %}
