@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles thumbnail %}
 {% block title %}
-    <title>{{ poll }}</title>
+    <title>ЕМА 2018</title>
 {% endblock %}
 {% block content %}
 
@@ -10,7 +10,6 @@
             <h1 class="title-h1">ЕМА 2018</h1>
         </div>
         <div class="title" style="padding-bottom: 0;">
-            <div class="title__heading">{{ ad.title }}</div>
             <div class="title__body">
             </div>
             <div class="fullimage">
@@ -28,7 +27,6 @@
                 {% for ad in ads %}
                     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
                         <div class="ad">
-                            <h3 class="ad__title">{{ad.title}}</h3>
                             <div class="ad__image">
                                 {% if ad.image %}
                                     {% thumbnail ad.image "450x280" as im %}

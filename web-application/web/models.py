@@ -48,7 +48,7 @@ class PollAnswer(models.Model):
 
 
 class Ad(models.Model):
-    title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
+    title = models.CharField(max_length=200, verbose_name=_('Зоголовок'), blank=True, null=True)
     image = models.ImageField(upload_to=ad_image_path, verbose_name=u"Изображение")
     is_active = models.BooleanField(default=True)
 
