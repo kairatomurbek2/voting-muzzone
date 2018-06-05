@@ -27,22 +27,13 @@ def vote(request, **kwargs):
 
 
 def feed(request):
-    poll = Poll.objects.filter(is_active=True).last()
-    ad = Ad.objects.last()
-    ads = Ad.objects.all();
+    polls = Poll.objects.filter(is_active=True)
+    ads = Ad.objects.all()
     data = {}
-    page = request.GET.get('page', 1)
-    if ad:
-        data['ad'] = ad
-    if ads: 
+    if ads:
         data['ads'] = ads
-    if poll:
-        choices = Paginator(poll.get_result(), 12)
-        data['poll'] = poll
-        data['choices'] = choices.get_page(page)
-        data['count'] = choices.num_pages
-    if request.is_ajax():
-        return render(request, 'paginate.html', data)
+    if polls:
+        data['polls'] = polls
     return render(request, 'index.html', data)
 
 

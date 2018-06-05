@@ -43,13 +43,9 @@
     <div class="video">
         <div class="container-fluid">
             <div class="row" id="object_list">
-                <h4 class="poll">{{ poll.title }} </h4>
                 {% include 'paginate.html' %}
             </div>
         </div>
     </div>
-    {% if choices.has_next %}
-        <a id="pagination_button" href="" onclick="pagination();return false;" class="button-big">Загрузить еще</a>
-    {% endif %}
 
 {% endblock %}
