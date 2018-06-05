@@ -39,7 +39,7 @@ def feed(request):
 
 @csrf_exempt
 @require_http_methods(["POST"])
-@check_vote_permisson
+# @check_vote_permisson
 def check(request, **kwargs):
     return JsonResponse({'success': True, 'message': 'Вы можете проголосовать'})
 

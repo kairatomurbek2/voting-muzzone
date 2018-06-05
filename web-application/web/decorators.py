@@ -30,7 +30,7 @@ def check_vote_permisson(func):
     def wrapper(request, *args, **kwargs):
         user_agent = request.META['HTTP_USER_AGENT']
         ip_address = get_client_ip(request)
-        answer = PollAnswer.objects.filter(ip_address=ip_address).last()
+        answer = PollAnswer.objects.filter(choices__poll=kwargs.get('poll'), ip_address=ip_address).last()
         kwargs['ip_address'] = ip_address
         kwargs['user_agent'] = user_agent
         if not answer:

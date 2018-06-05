@@ -65,6 +65,6 @@ function initClock(h, min, sec) {
 }
 
 $(document).ready(function () {
-  checkVotePermissions();
-  initClock();
+  // checkVotePermissions();
+  // initClock();
 });
