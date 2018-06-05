@@ -28,8 +28,8 @@ def vote(request, **kwargs):
 
 def feed(request):
     polls = Poll.objects.filter(is_active=True)
-    ads = Ad.objects.all()
-    data = {}
+    data = {'ad': Ad.objects.first()}
+    ads = Ad.objects.exclude(id=data.get('ad').id)
     if ads:
         data['ads'] = ads
     if polls:
