@@ -52,9 +52,6 @@ class Ad(models.Model):
     image = models.ImageField(upload_to=ad_image_path, verbose_name=u"Изображение")
     is_active = models.BooleanField(default=True)
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         verbose_name = _('Спонсор')
         verbose_name_plural = _('Спонсоры')
