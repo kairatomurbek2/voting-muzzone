@@ -9,3 +9,5 @@ settings_local.py
 web-application/static
 web-application/media
 node_modules/
+web-application/staticfiles/node_modules
+npm-debug.log
