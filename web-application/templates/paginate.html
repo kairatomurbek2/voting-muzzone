@@ -12,7 +12,7 @@
                     {% endif %}
                 </div>
                 <div class="video__title">
-                    <span class="video__name">{{ choice.title }} - </span>
+                    <span class="video__name">{{ choice.title }} </span>
                     <p><span id="percent-{{ choice.id }}" class="video__song">{{ choice.percent | default_if_none:"0" | floatformat:-2}}%</span>
                     <p>Количество голосов: <span id="count-{{ choice.id }}" class="video__song">{{ choice.answer_count | default_if_none:"0"}}</span>
                 </div>
