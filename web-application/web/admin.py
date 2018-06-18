@@ -19,7 +19,16 @@ class AdminPollAnswer(admin.ModelAdmin):
         return PollAnswerCheatView.as_view()(request)
 
 
+class PollChoiceAdmin(admin.ModelAdmin):
+    list_display = ('title', 'answer_count')
+
+    def answer_count(self, obj):
+        return obj.answers.all().count()
+
+    answer_count.short_description = 'Количество голосов'
+
+
 admin.site.register(Poll)
-admin.site.register(PollChoice)
+admin.site.register(PollChoice, PollChoiceAdmin)
 admin.site.register(PollAnswer, AdminPollAnswer)
 admin.site.register(Ad)
