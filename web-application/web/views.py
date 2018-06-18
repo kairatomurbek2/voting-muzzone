@@ -23,7 +23,8 @@ def vote(request, **kwargs):
                               user_agent=kwargs.get('user_agent'))
     choice = kwargs.get('poll').get_result().filter(id=kwargs.get('choice').id)[0]
     return JsonResponse(
-        {'success': True, 'message': 'Спасибо за ваш голос!', 'percent': choice.percent, 'id': choice.id})
+        {'success': True, 'message': 'Спасибо за ваш голос!', 'percent': choice.percent, 'id': choice.id,
+         'count': choice.answer_count})
 
 
 def feed(request):

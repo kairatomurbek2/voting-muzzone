@@ -22,7 +22,8 @@ function vote(event, questionId, choiceId) {
     },
     success: function (data) {
       if(data.success) {
-        $('#percent-' + data.id).text(data.percent + '%')
+        $('#percent-' + data.id).text(data.percent + '%');
+        $('#count-' + data.id).text(data.count);
         handleErrors(true);
       } else {
         handleErrors(false, data.message);

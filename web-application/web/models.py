@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.db.models import F, Count
+from django.db.models import F, Count, FloatField
+from django.db.models.functions import Cast
 
 from main.utils import poll_choices_image_path, ad_image_path
 
@@ -12,7 +13,8 @@ class Poll(models.Model):
 
     def get_result(self):
         answers_count = PollAnswer.objects.filter(choices__poll=self.id).count()
-        return self.choices.annotate(percent=(Count('answers') * 100) / answers_count).order_by('-percent')
+        return self.choices.annotate(percent=Cast((Count('answers') * 100), FloatField()) / answers_count,
+                                     answer_count=Count('answers')).order_by('-percent')
 
     def __str__(self):
         return self.title
