@@ -6,6 +6,8 @@ from web.views import PollAnswerCheatView
 
 
 class AdminPollAnswer(admin.ModelAdmin):
+    list_display = ('ip_address', 'user_agent', 'created_at')
+
     def get_urls(self):
         urls = super(AdminPollAnswer, self).get_urls()
         custom_urls = [
