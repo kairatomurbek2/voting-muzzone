@@ -10,6 +10,7 @@ class Poll(models.Model):
     title = models.CharField(max_length=200, verbose_name=_('Зоголовок'))
     is_active = models.BooleanField(default=True, verbose_name=_('Активный'))
     created_at = models.DateField(auto_now_add=True, verbose_name=_('Дата создание'))
+    opportunity_vote = models.BooleanField(default=True, verbose_name=_('Возможность голосовать'))
 
     def get_result(self):
         answers_count = PollAnswer.objects.filter(choices__poll=self.id).count()

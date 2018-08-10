@@ -11,6 +11,8 @@ def get_poll(func):
     def wrapper(request, poll_id, *args, **kwargs):
         poll = get_object_or_404(Poll, id=poll_id)
         kwargs['poll'] = poll
+        if not poll.opportunity_vote:
+            return JsonResponse({'success': False, 'message': 'Вы не можете голосовать'})
         return func(request, *args, **kwargs)
     return wrapper
 
