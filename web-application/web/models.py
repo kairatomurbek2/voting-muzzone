@@ -40,7 +40,7 @@ class PollChoice(models.Model):
 
 class PollAnswer(models.Model):
     choices = models.ForeignKey(PollChoice, on_delete=models.CASCADE, verbose_name=_('Вариант'), related_name='answers')
-    ip_address = models.GenericIPAddressField(verbose_name=_('Ip адресс'))
+    ip_address = models.GenericIPAddressField(verbose_name=_('Ip адресс'), db_index=True)
     user_agent = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_now_add=True)
 
